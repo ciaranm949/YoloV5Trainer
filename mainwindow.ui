@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1350</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="input_widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Parameters</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="model_name_label">
+            <property name="text">
+             <string>Model Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="model_name_entry"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="epochs_label">
+            <property name="text">
+             <string>Epochs:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="epochs_entry">
+            <property name="text">
+             <string>50</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="batch_size_label">
+            <property name="text">
+             <string>Batch Size:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="batch_size_entry">
+            <property name="text">
+             <string>16</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="file_selection_groupbox">
+         <property name="title">
+          <string>File Selection</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="yaml_file_label">
+            <property name="text">
+             <string>Dataset YAML File:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="yaml_file_entry">
+            <property name="text">
+             <string>No file selected</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="yaml_file_button">
+            <property name="text">
+             <string>Select YAML File</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="output_directory_label">
+            <property name="text">
+             <string>Output Directory:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="output_directory_entry"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="output_directory_button">
+            <property name="text">
+             <string>Select Output Directory</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="training_groupbox">
+         <property name="title">
+          <string>Training</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPushButton" name="start_training_button">
+            <property name="text">
+             <string>Start Training</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="minimumSize">
+       <size>
+        <width>1000</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Output</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QTextEdit" name="output_text_edit">
+         <property name="minimumSize">
+          <size>
+           <width>1000</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
