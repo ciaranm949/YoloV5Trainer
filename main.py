@@ -37,7 +37,7 @@ class TrainingThread(QThread):
 
         os.chdir(yolov5_path)
         os.makedirs(self.output_directory, exist_ok=True)
-        command = f"python train.py --img 416 --batch {self.batch_size} --epochs {self.epochs} --data {self.yaml_file} --cfg models/yolov5l.yaml --name {self.model_name} --cache --project {self.output_directory}"
+        command = f"python3 train.py --img 416 --batch {self.batch_size} --epochs {self.epochs} --data {self.yaml_file} --cfg models/yolov5l.yaml --name {self.model_name} --cache --project {self.output_directory}"
         process = subprocess.Popen(
             command,
             shell=True,
