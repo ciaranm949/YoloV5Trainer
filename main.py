@@ -44,6 +44,7 @@ class TrainingThread(QThread):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             universal_newlines=True,
+            env=os.environ,
         )
 
         while process.poll() is None:
