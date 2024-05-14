@@ -65,6 +65,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.output_directory_button.clicked.connect(self.select_output_directory)
         self.start_training_button.clicked.connect(self.start_training)
 
+        self.update_yolov5_directory()
+
     def select_yaml_file(self):
         file_dialog = QFileDialog()
         file_dialog.setNameFilter("YAML files (*.yaml)")
@@ -107,6 +109,43 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.output_text_edit.append
         )
         self.training_thread.start()
+
+    def update_yolov5_directory(self):
+        current_directory = os.path.abspath(os.getcwd())
+        yolov5_path = os.path.join(current_directory, "yolov5")
+
+        # Check if the yolov5 directory exists
+        if not os.path.exists(yolov5_path):
+            print("yolov5 directory not found. Cloning from repository...")
+            self.show_info_dialog("Updating", "Downloading yolov5 dependencies...")
+            try:
+                subprocess.run(
+                    ["git", "clone", "https://github.com/ultralytics/yolov5.git"]
+                )
+                print("yolov5 updated successfully.")
+            except Exception as e:
+                print(f"Error updating yolov5: {e}")
+                self.show_error_dialog("Error", "Failed to clone Yolov5 repository.")
+                return
+        else:
+            print("yolov5 directory found. Updating from repository...")
+            self.show_info_dialog("Updating", "Updating yolov5 dependencies...")
+            try:
+                os.chdir(yolov5_path)
+                subprocess.run(["git", "pull"])
+                print("yolov5 repository updated successfully.")
+            except Exception as e:
+                print(f"Error updating Yolov5 repository: {e}")
+                self.show_error_dialog("Error", "Failed to update yolov5 dependencies.")
+                return
+
+        self.show_info_dialog("Update Complete", "Yolov5 dependencies is up to date.")
+
+    def show_info_dialog(self, title, message):
+        QMessageBox.information(self, title, message)
+
+    def show_error_dialog(self, title, message):
+        QMessageBox.critical(self, title, message)
 
 
 if __name__ == "__main__":
