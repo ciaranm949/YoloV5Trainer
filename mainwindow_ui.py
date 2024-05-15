@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainwindow.ui'
+# Form implementation generated from reading ui file '/Users/ciaran/Workspace/Personal/YoloV5Trainer/mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -33,6 +33,12 @@ class Ui_MainWindow(object):
         self.model_name_entry = QtWidgets.QLineEdit(self.groupBox)
         self.model_name_entry.setObjectName("model_name_entry")
         self.verticalLayout_2.addWidget(self.model_name_entry)
+        self.img_size_label = QtWidgets.QLabel(self.groupBox)
+        self.img_size_label.setObjectName("img_size_label")
+        self.verticalLayout_2.addWidget(self.img_size_label)
+        self.img_size_combobox = QtWidgets.QComboBox(self.groupBox)
+        self.img_size_combobox.setObjectName("img_size_combobox")
+        self.verticalLayout_2.addWidget(self.img_size_combobox)
         self.epochs_label = QtWidgets.QLabel(self.groupBox)
         self.epochs_label.setObjectName("epochs_label")
         self.verticalLayout_2.addWidget(self.epochs_label)
@@ -45,8 +51,19 @@ class Ui_MainWindow(object):
         self.batch_size_entry = QtWidgets.QLineEdit(self.groupBox)
         self.batch_size_entry.setObjectName("batch_size_entry")
         self.verticalLayout_2.addWidget(self.batch_size_entry)
+        self.label = QtWidgets.QLabel(self.groupBox)
+        self.label.setObjectName("label")
+        self.verticalLayout_2.addWidget(self.label)
+        self.comboBox = QtWidgets.QComboBox(self.groupBox)
+        self.comboBox.setObjectName("comboBox")
+        self.verticalLayout_2.addWidget(self.comboBox)
         self.verticalLayout.addWidget(self.groupBox)
         self.file_selection_groupbox = QtWidgets.QGroupBox(self.input_widget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.file_selection_groupbox.sizePolicy().hasHeightForWidth())
+        self.file_selection_groupbox.setSizePolicy(sizePolicy)
         self.file_selection_groupbox.setObjectName("file_selection_groupbox")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.file_selection_groupbox)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -54,6 +71,7 @@ class Ui_MainWindow(object):
         self.yaml_file_label.setObjectName("yaml_file_label")
         self.verticalLayout_3.addWidget(self.yaml_file_label)
         self.yaml_file_entry = QtWidgets.QLabel(self.file_selection_groupbox)
+        self.yaml_file_entry.setWordWrap(True)
         self.yaml_file_entry.setObjectName("yaml_file_entry")
         self.verticalLayout_3.addWidget(self.yaml_file_entry)
         self.yaml_file_button = QtWidgets.QPushButton(self.file_selection_groupbox)
@@ -63,6 +81,7 @@ class Ui_MainWindow(object):
         self.output_directory_label.setObjectName("output_directory_label")
         self.verticalLayout_3.addWidget(self.output_directory_label)
         self.output_directory_entry = QtWidgets.QLabel(self.file_selection_groupbox)
+        self.output_directory_entry.setWordWrap(True)
         self.output_directory_entry.setObjectName("output_directory_entry")
         self.verticalLayout_3.addWidget(self.output_directory_entry)
         self.output_directory_button = QtWidgets.QPushButton(self.file_selection_groupbox)
@@ -97,11 +116,13 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.groupBox.setTitle(_translate("MainWindow", "Parameters"))
-        self.model_name_label.setText(_translate("MainWindow", "Model Name:"))
+        self.model_name_label.setText(_translate("MainWindow", "Model Name"))
+        self.img_size_label.setText(_translate("MainWindow", "Image Size"))
         self.epochs_label.setText(_translate("MainWindow", "Epochs:"))
         self.epochs_entry.setText(_translate("MainWindow", "50"))
-        self.batch_size_label.setText(_translate("MainWindow", "Batch Size:"))
+        self.batch_size_label.setText(_translate("MainWindow", "Batch Size"))
         self.batch_size_entry.setText(_translate("MainWindow", "16"))
+        self.label.setText(_translate("MainWindow", "Model Size"))
         self.file_selection_groupbox.setTitle(_translate("MainWindow", "File Selection"))
         self.yaml_file_label.setText(_translate("MainWindow", "Dataset YAML File:"))
         self.yaml_file_entry.setText(_translate("MainWindow", "No file selected"))

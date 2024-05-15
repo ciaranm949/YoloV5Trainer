@@ -27,12 +27,22 @@
           <item>
            <widget class="QLabel" name="model_name_label">
             <property name="text">
-             <string>Model Name:</string>
+             <string>Model Name</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="model_name_entry"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="img_size_label">
+            <property name="text">
+             <string>Image Size</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="img_size_combobox"/>
           </item>
           <item>
            <widget class="QLabel" name="epochs_label">
@@ -51,7 +61,7 @@
           <item>
            <widget class="QLabel" name="batch_size_label">
             <property name="text">
-             <string>Batch Size:</string>
+             <string>Batch Size</string>
             </property>
            </widget>
           </item>
@@ -62,11 +72,27 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Model Size</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox"/>
+          </item>
          </layout>
         </widget>
        </item>
        <item>
         <widget class="QGroupBox" name="file_selection_groupbox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>File Selection</string>
          </property>
@@ -82,6 +108,9 @@
            <widget class="QLabel" name="yaml_file_entry">
             <property name="text">
              <string>No file selected</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -100,7 +129,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="output_directory_entry"/>
+           <widget class="QLabel" name="output_directory_entry">
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="output_directory_button">
