@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1350</width>
-    <height>600</height>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,23 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="img_size_combobox"/>
+           <widget class="QComboBox" name="img_size_combobox">
+            <item>
+             <property name="text">
+              <string>416</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>640</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>1080</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item>
            <widget class="QLabel" name="epochs_label">
@@ -80,7 +96,28 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>Small</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Medium</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Large</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Extra Large</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </widget>
