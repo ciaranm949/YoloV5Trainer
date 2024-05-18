@@ -16,7 +16,15 @@ class Communicate(QObject):
 
 class TrainingThread(QThread):
     def __init__(
-        self, model_name, epochs, batch_size, output_directory, yaml_file, communicate
+        self,
+        model_name,
+        epochs,
+        batch_size,
+        output_directory,
+        yaml_file,
+        img_size,
+        model_size,
+        communicate,
     ):
         super().__init__()
         self.model_name = model_name
@@ -24,6 +32,8 @@ class TrainingThread(QThread):
         self.batch_size = batch_size
         self.output_directory = output_directory
         self.yaml_file = yaml_file
+        self.img_size = img_size
+        self.model_size = model_size
         self.communicate = communicate
 
     def run(self):
@@ -37,7 +47,11 @@ class TrainingThread(QThread):
 
         os.chdir(yolov5_path)
         os.makedirs(self.output_directory, exist_ok=True)
-        command = f"python3 train.py --img 416 --batch {self.batch_size} --epochs {self.epochs} --data {self.yaml_file} --cfg models/yolov5l.yaml --name {self.model_name} --cache --project {self.output_directory}"
+        command = (
+            f"python3 train.py --img {self.img_size} --batch {self.batch_size} --epochs {self.epochs} "
+            f"--data {self.yaml_file} --cfg models/{self.model_size}.yaml --name {self.model_name} "
+            f"--cache --project {self.output_directory}"
+        )
         process = subprocess.Popen(
             command,
             shell=True,
@@ -88,6 +102,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         batch_size = self.batch_size_entry.text()
         yaml_file = self.yaml_file_entry.text()
         output_directory = self.output_directory_entry.text()
+        img_size = self.img_size_combobox.currentText()
+        model_size = self.comboBox.currentText()
 
         print("**************")
         print("**  Training Parameters  **\n\n")
@@ -96,14 +112,33 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print("Batch Size:", batch_size)
         print("YAML File:", yaml_file)
         print("Output Directory:", output_directory)
+        print("Image Size:", img_size)
+        print("Model Size:", model_size)
         print("**************")
 
-        if not all([model_name, epochs, batch_size, yaml_file, output_directory]):
+        if not all(
+            [
+                model_name,
+                epochs,
+                batch_size,
+                yaml_file,
+                output_directory,
+                img_size,
+                model_size,
+            ]
+        ):
             QMessageBox.critical(self, "Error", "Please set all required parameters.")
             return
 
         self.training_thread = TrainingThread(
-            model_name, epochs, batch_size, output_directory, yaml_file, Communicate()
+            model_name,
+            epochs,
+            batch_size,
+            output_directory,
+            yaml_file,
+            img_size,
+            model_size,
+            Communicate(),
         )
         self.training_thread.communicate.output_updated.connect(
             self.output_text_edit.append
